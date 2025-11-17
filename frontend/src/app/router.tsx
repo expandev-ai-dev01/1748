@@ -4,6 +4,7 @@ import { AppLayout } from '@/pages/layouts/AppLayout';
 import { LoadingSpinner } from '@/core/components/LoadingSpinner';
 
 const HomePage = lazy(() => import('@/pages/Home'));
+const AIAutomationPage = lazy(() => import('@/pages/AIAutomation'));
 const NotFoundPage = lazy(() => import('@/pages/NotFound'));
 
 const router = createBrowserRouter([
@@ -19,7 +20,14 @@ const router = createBrowserRouter([
           </Suspense>
         ),
       },
-      // Feature routes will be added here
+      {
+        path: 'ai-automation',
+        element: (
+          <Suspense fallback={<LoadingSpinner />}>
+            <AIAutomationPage />
+          </Suspense>
+        ),
+      },
     ],
   },
   {

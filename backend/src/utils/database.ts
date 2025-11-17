@@ -64,5 +64,10 @@ export const executeProcedure = async (
     }
   }
   const result = await request.execute(procedureName);
-  return result.recordsets;
+
+  if (Array.isArray(result.recordsets)) {
+    return result.recordsets;
+  }
+
+  return [result.recordset];
 };
